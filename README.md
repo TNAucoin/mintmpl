@@ -160,13 +160,6 @@ no_transform:
   - "assets/*"
 ```
 
-## Examples
-
-Check out the [`samples/`](./samples) directory for complete examples:
-
-- **[Python Package](./samples/python-package/)** - A full Python package with async support
-- **[NuGet Package](./samples/nuget-package/)** - A .NET library with conditional analyzers
-
 ## CLI Commands
 
 ```bash
@@ -236,7 +229,7 @@ Powered by [Copier](https://copier.readthedocs.io/) for template rendering.
 
 <div align="center">
 
-  **[Documentation](./docs)** • **[Examples](./samples)** • **[Issues](../../issues)** • **[Discussions](../../discussions)**
+  **[Documentation](./docs)** • **[Issues](../../issues)** • **[Discussions](../../discussions)**
 
   Made with ⚡ by the Mintmpl community
 
