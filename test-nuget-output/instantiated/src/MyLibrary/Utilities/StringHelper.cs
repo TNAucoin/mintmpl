@@ -1,0 +1,138 @@
+using System;
+using System.Globalization;
+using System.Text;
+
+namespace MyLibrary.Utilities;
+
+/// <summary>
+/// Utility methods for string manipulation.
+/// </summary>
+public static class StringHelper
+{
+    /// <summary>
+    /// Converts a string to title case.
+    /// </summary>
+    /// <param name="input">The input string.</param>
+    /// <returns>The string in title case.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when input is null.</exception>
+    public static string ToTitleCase(string input)
+    {
+        if (input == null)
+        {
+            throw new ArgumentNullException(nameof(input));
+        }
+
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return input;
+        }
+
+        var textInfo = CultureInfo.CurrentCulture.TextInfo;
+        return textInfo.ToTitleCase(input.ToLower());
+    }
+
+    /// <summary>
+    /// Truncates a string to the specified maximum length.
+    /// </summary>
+    /// <param name="input">The input string.</param>
+    /// <param name="maxLength">Maximum length.</param>
+    /// <param name="ellipsis">Whether to append ellipsis (...) when truncated.</param>
+    /// <returns>The truncated string.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when input is null.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when maxLength is negative.</exception>
+    public static string Truncate(string input, int maxLength, bool ellipsis = true)
+    {
+        if (input == null)
+        {
+            throw new ArgumentNullException(nameof(input));
+        }
+
+        if (maxLength < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(maxLength), "Max length cannot be negative.");
+        }
+
+        if (input.Length <= maxLength)
+        {
+            return input;
+        }
+
+        if (!ellipsis)
+        {
+            return input.Substring(0, maxLength);
+        }
+
+        const string ellipsisString = "...";
+        var truncateLength = Math.Max(0, maxLength - ellipsisString.Length);
+        return input.Substring(0, truncateLength) + ellipsisString;
+    }
+
+    /// <summary>
+    /// Converts a string to camel case.
+    /// </summary>
+    /// <param name="input">The input string.</param>
+    /// <returns>The string in camel case.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when input is null.</exception>
+    public static string ToCamelCase(string input)
+    {
+        if (input == null)
+        {
+            throw new ArgumentNullException(nameof(input));
+        }
+
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return input;
+        }
+
+        var words = input.Split(new[] { ' ', '_', '-' }, StringSplitOptions.RemoveEmptyEntries);
+        var result = new StringBuilder();
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            var word = words[i];
+            if (i == 0)
+            {
+                result.Append(char.ToLower(word[0]));
+            }
+            else
+            {
+                result.Append(char.ToUpper(word[0]));
+            }
+
+            if (word.Length > 1)
+            {
+                result.Append(word.Substring(1).ToLower());
+            }
+        }
+
+        return result.ToString();
+    }
+
+    /// <summary>
+    /// Converts a string to pascal case.
+    /// </summary>
+    /// <param name="input">The input string.</param>
+    /// <returns>The string in pascal case.</returns>
+    /// <exception cref="ArgumentNullException">Thrown when input is null.</exception>
+    public static string ToPascalCase(string input)
+    {
+        if (input == null)
+        {
+            throw new ArgumentNullException(nameof(input));
+        }
+
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return input;
+        }
+
+        var camelCase = ToCamelCase(input);
+        if (camelCase.Length == 0)
+        {
+            return camelCase;
+        }
+
+        return char.ToUpper(camelCase[0]) + camelCase.Substring(1);
+    }
+}

@@ -1,0 +1,67 @@
+"""Configuration module for {{ package_name }}."""
+
+import os
+from dataclasses import dataclass
+from typing import Optional
+
+
+@dataclass
+class Config:
+    """Configuration class for {{ class_name }}.
+
+    This class holds all configuration options for the mypackage service.
+    """
+
+    # Database configuration
+    database_name: str = "{{ database_name }}"
+    database_host: str = "localhost"
+    database_port: int = 5432
+
+    # Service configuration
+    service_name: str = "{{ package_name }}"
+    debug_mode: bool = False
+    max_retries: int = 3
+    timeout: int = 30
+
+    # API configuration
+    api_key: Optional[str] = None
+    base_url: str = "https://api.example.com"
+
+    @classmethod
+    def from_env(cls) -> "Config":
+        """Create configuration from environment variables.
+
+        Returns:
+            Config: Configuration instance populated from environment.
+        """
+        return cls(
+            database_name=os.getenv("DB_NAME", "{{ database_name }}"),
+            database_host=os.getenv("DB_HOST", "localhost"),
+            database_port=int(os.getenv("DB_PORT", "5432")),
+            service_name=os.getenv("SERVICE_NAME", "{{ package_name }}"),
+            debug_mode=os.getenv("DEBUG", "false").lower() == "true",
+            max_retries=int(os.getenv("MAX_RETRIES", "3")),
+            timeout=int(os.getenv("TIMEOUT", "30")),
+            api_key=os.getenv("API_KEY"),
+            base_url=os.getenv("BASE_URL", "https://api.example.com"),
+        )
+
+    def validate(self) -> bool:
+        """Validate configuration settings.
+
+        Returns:
+            bool: True if configuration is valid.
+
+        Raises:
+            ValueError: If configuration is invalid.
+        """
+        if not self.database_name:
+            raise ValueError("Database name cannot be empty")
+
+        if self.database_port < 1 or self.database_port > 65535:
+            raise ValueError("Invalid database port")
+
+        if self.max_retries < 0:
+            raise ValueError("Max retries must be non-negative")
+
+        return True

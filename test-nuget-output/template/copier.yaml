@@ -1,0 +1,47 @@
+_exclude:
+    - '{% if not include_analyzers %}Directory.Analyzers.props{% endif %}'
+    - '{% if not include_analyzers %}stylecop.json{% endif %}'
+_jinja_extensions:
+    - jinja2_time.TimeExtension
+_min_copier_version: 9.0.0
+_subdirectory: template
+author_email:
+    default: john.smith@example.com
+    help: Package author email
+    type: str
+author_name:
+    default: John Smith
+    help: Package author name
+    type: str
+class_name:
+    default: ServiceClient
+    help: Main service class name
+    type: str
+company_name:
+    default: Example Corp
+    help: Company name
+    type: str
+include_analyzers:
+    default: true
+    help: Include Roslyn analyzers and code quality tools
+    type: bool
+namespace_name:
+    default: MyLibrary
+    help: Root namespace
+    type: str
+package_description:
+    default: A modern .NET library for awesome functionality
+    help: Package description for NuGet
+    type: str
+package_display_name:
+    default: My Library
+    help: Display name for the package
+    type: str
+package_name:
+    default: MyLibrary
+    help: The NuGet package name (e.g., MyCompany.MyLibrary)
+    type: str
+repository_url:
+    default: https://github.com/example/mylibrary
+    help: Source repository URL
+    type: str

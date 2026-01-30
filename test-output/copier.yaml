@@ -1,0 +1,38 @@
+_exclude:
+    - '{% if not use_async %}**/*_async.py{% endif %}'
+_jinja_extensions:
+    - jinja2_time.TimeExtension
+_min_copier_version: 9.0.0
+_subdirectory: template
+author_email:
+    default: john.doe@example.com
+    help: The email of the package author
+    type: str
+author_name:
+    default: John Doe
+    help: The name of the package author
+    type: str
+class_name:
+    default: MyService
+    help: The main class name
+    type: str
+database_name:
+    default: myapp_db
+    help: The default database name
+    type: str
+package_display_name:
+    default: My Package
+    help: The display name for the package
+    type: str
+package_name:
+    default: mypackage
+    help: The name of the Python package
+    type: str
+project_description:
+    default: A sample Python package
+    help: A short description of the project
+    type: str
+use_async:
+    default: false
+    help: Use async/await patterns
+    type: bool

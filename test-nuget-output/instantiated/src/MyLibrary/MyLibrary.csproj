@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Target frameworks - support both .NET Standard 2.0 for broad compatibility and modern .NET -->
+    <TargetFrameworks>netstandard2.0;net6.0;net8.0</TargetFrameworks>
+
+    <!-- Package metadata -->
+    <PackageId>MyLibrary</PackageId>
+    <Title>My Library</Title>
+    <Description>A modern .NET library for awesome functionality</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.0.0</Version>
+
+    <!-- Assembly information -->
+    <AssemblyName>MyLibrary</AssemblyName>
+    <RootNamespace>MyLibrary</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Include README in package -->
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Common dependencies -->
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
+    <PackageReference Include="System.Text.Json" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <!-- Polyfills for .NET Standard 2.0 -->
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,91 @@
+name: python-package-template
+version: 1.0.0
+
+variables:
+  package_name:
+    type: str
+    description: The name of the Python package
+    default: mypackage
+    transforms:
+      - match: mypackage
+        node_types:
+          - string
+          - identifier
+        case_sensitive: true
+
+  package_display_name:
+    type: str
+    description: The display name for the package
+    default: My Package
+    transforms:
+      - match: My Package
+        node_types:
+          - string
+        case_sensitive: true
+
+  author_name:
+    type: str
+    description: The name of the package author
+    default: John Doe
+    transforms:
+      - match: John Doe
+        node_types:
+          - string
+        case_sensitive: true
+
+  author_email:
+    type: str
+    description: The email of the package author
+    default: john.doe@example.com
+    transforms:
+      - match: john.doe@example.com
+        node_types:
+          - string
+        case_sensitive: true
+
+  project_description:
+    type: str
+    description: A short description of the project
+    default: A sample Python package
+    transforms:
+      - match: A sample Python package
+        node_types:
+          - string
+        case_sensitive: false
+
+  class_name:
+    type: str
+    description: The main class name
+    default: MyService
+    transforms:
+      - match: MyService
+        node_types:
+          - identifier
+          - string
+        case_sensitive: true
+
+  database_name:
+    type: str
+    description: The default database name
+    default: myapp_db
+    transforms:
+      - match: myapp_db
+        node_types:
+          - string
+        case_sensitive: true
+
+  use_async:
+    type: bool
+    description: Use async/await patterns
+    default: false
+
+exclude:
+  - "*.pyc"
+  - "__pycache__"
+  - ".pytest_cache"
+  - "*.egg-info"
+  - "dist"
+  - "build"
+
+conditional_paths:
+  "**/*_async.py": use_async
