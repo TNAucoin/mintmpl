@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/wts-paradigm/mintmpl/internal/languages"
+	"github.com/tnaucoin/mintmpl/internal/languages"
 	"go.yaml.in/yaml/v3"
 )
 

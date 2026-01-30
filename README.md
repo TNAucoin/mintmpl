@@ -36,7 +36,7 @@ Instead of manually creating templates from scratch, take your battle-tested cod
 ### Installation
 
 ```bash
-go install github.com/wts-paradigm/mintmpl/cmd/mintmpl@latest
+go install github.com/tnaucoin/mintmpl/cmd/mintmpl@latest
 ```
 
 Or download pre-built binaries from [releases](../../releases).

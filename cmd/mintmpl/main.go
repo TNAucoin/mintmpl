@@ -9,8 +9,8 @@ import (
 
 	sitter "github.com/alexaandru/go-tree-sitter-bare"
 	"github.com/spf13/cobra"
-	"github.com/wts-paradigm/mintmpl/internal/spec"
-	"github.com/wts-paradigm/mintmpl/internal/transformer"
+	"github.com/tnaucoin/mintmpl/internal/spec"
+	"github.com/tnaucoin/mintmpl/internal/transformer"
 	"go.yaml.in/yaml/v3"
 )
 

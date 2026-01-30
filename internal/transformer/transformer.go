@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	sitter "github.com/alexaandru/go-tree-sitter-bare"
-	"github.com/wts-paradigm/mintmpl/internal/languages"
-	"github.com/wts-paradigm/mintmpl/internal/spec"
+	"github.com/tnaucoin/mintmpl/internal/languages"
+	"github.com/tnaucoin/mintmpl/internal/spec"
 )
 
 type Replacement struct {

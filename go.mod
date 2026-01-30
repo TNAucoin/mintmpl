@@ -1,4 +1,4 @@
-module github.com/wts-paradigm/mintmpl
+module github.com/tnaucoin/mintmpl
 
 go 1.24.3
 
