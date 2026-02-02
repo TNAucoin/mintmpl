@@ -6,8 +6,7 @@
   **Transform your working code into intelligent templates**
 
   [![Go Version](https://img.shields.io/badge/Go-1.24.3+-00ADD8?style=flat&logo=go)](https://go.dev/)
-  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 </div>
 
@@ -39,7 +38,7 @@ Instead of manually creating templates from scratch, take your battle-tested cod
 go install github.com/tnaucoin/mintmpl/cmd/mintmpl@latest
 ```
 
-Or download pre-built binaries from [releases](../../releases).
+Or download pre-built binaries from [releases](https://github.com/TNAucoin/mintmpl/releases).
 
 ### Basic Usage
 
@@ -200,7 +199,7 @@ We welcome contributions! Whether it's:
 - 📝 Documentation improvements
 - 🔧 Code contributions
 
-Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+Please open an issue or pull request on [GitHub](https://github.com/TNAucoin/mintmpl).
 
 ## Roadmap
 
@@ -213,7 +212,7 @@ Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## License
 
-MIT License - see [LICENSE](LICENSE) for details.
+This project is licensed under the MIT License.
 
 ## Credits
 
@@ -229,7 +228,7 @@ Powered by [Copier](https://copier.readthedocs.io/) for template rendering.
 
 <div align="center">
 
-  **[Documentation](./docs)** • **[Issues](../../issues)** • **[Discussions](../../discussions)**
+  **[Issues](https://github.com/TNAucoin/mintmpl/issues)** • **[Discussions](https://github.com/TNAucoin/mintmpl/discussions)**
 
   Made with ⚡ by the Mintmpl community
 
