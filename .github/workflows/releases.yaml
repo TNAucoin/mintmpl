@@ -52,7 +52,7 @@ jobs:
 
           go build -ldflags="-s -w -X main.version=${{ github.ref_name }} -X main.commit=${{ github.sha }}" \
             -o mintmpl-${{ matrix.os }}-${{ matrix.arch }}${EXT} \
-            ./cmd/mint
+            ./cmd/mintmpl
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
